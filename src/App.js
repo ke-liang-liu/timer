@@ -11,21 +11,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import StopIcon from '@material-ui/icons/Stop';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    textAlign: 'center',
-  },
-  textBtn: {
-    width: 62,
-    color: 'black',
-    textTransform: 'lowercase',
-  },
-  divider: {
-    margin: theme.spacing(2, 0),
-  },
-}));
+import useStyles from './styles';
 
 function App() {
   const classes = useStyles();
@@ -107,10 +93,10 @@ function App() {
   }
   return (
     <Container className={classes.root} maxWidth="sm">
-      <Typography variant="h4">
+      <Typography variant="h5">
         <span id='timer-label'>{type}</span> Time Countdown
         </Typography>
-      <Typography variant="h4">
+      <Typography variant="h5">
         <span id='time-left'>{displayTimeLeft}</span><br />
       </Typography>
       <span>min&nbsp;&nbsp;&nbsp;sec</span>
@@ -158,7 +144,7 @@ function App() {
             </Button>
           </ButtonGroup>
         </Grid>
-        <div style={{margin: 'auto'}}>
+        <div style={{ margin: 'auto' }}>
           <Typography variant="body2" align='center'>
             Designed and Coded By Keliang Liu
           </Typography>
