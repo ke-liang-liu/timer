@@ -117,7 +117,7 @@ function App() {
             </Button>
           </ButtonGroup>
         </Grid>
-        <Grid item xs={12} sm={4} style={{ marginBottom: 18 }}>
+        <Grid item xs={12} sm={4} style={{ marginBottom: 16 }}>
           <Typography>&nbsp;</Typography>
           <ButtonGroup size='small' variant="contained" aria-label="split button">
             <Button id='start_stop' onClick={startOrPause}>
@@ -144,7 +144,7 @@ function App() {
             </Button>
           </ButtonGroup>
         </Grid>
-        <div style={{ margin: 'auto' }}>
+        <div style={{ margin: 'auto', marginTop: 16 }}>
           <Typography variant="body2" align='center'>
             Designed and Coded By Keliang Liu
           </Typography>
