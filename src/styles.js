@@ -16,12 +16,18 @@ const useStyles = makeStyles(theme => ({
   divider: {
     margin: theme.spacing(2, 0),
   },
+  sessionControl: {
+    marginBottom: theme.spacing(2),
+  },
+  breakControl: {
+    marginBottom: theme.spacing(2),
+  },
   playControl: {
     marginBottom: theme.spacing(2),
   },
   developer: {
     margin: 'auto',
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1.6),
   }
 }));
 

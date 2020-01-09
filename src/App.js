@@ -11,6 +11,8 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import StopIcon from '@material-ui/icons/Stop';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import useStyles from './styles';
 
 function App() {
@@ -111,7 +113,12 @@ function App() {
     <Container className={classes.root} maxWidth="sm">
       <Typography variant="h5">
         <span id='timer-label'>{type}</span> Time Countdown
-        </Typography>
+      </Typography>
+      {type === 'Session' ? (
+        <div><DirectionsBikeIcon fontSize='large' /></div>
+      ) : (
+          <div><FreeBreakfastIcon fontSize='large' /></div>
+        )}
       <Typography variant="h5">
         <span id='time-left'>{displayTimeLeft}</span><br />
       </Typography>
@@ -119,21 +126,41 @@ function App() {
       <Divider className={classes.divider} />
 
       <Grid container>
-        <Grid item xs={12} sm={4}>
+        <Grid item className={classes.sessionControl} xs={12} sm={6}>
           <Typography id='session-label'>Session Time Length</Typography>
           <ButtonGroup variant="contained" aria-label="split button">
-            <Button id='session-decrement' aria-label="add" onClick={handleSessionLength} value='-1'>
-              <RemoveIcon />
+            <Button disabled style={{ color: 'black' }}>
+              <DirectionsBikeIcon />
             </Button>
             <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
               <span id='session-length'>{sessionLength}</span>&nbsp;min
             </Button>
-            <Button id='session-increment' aria-label="add" onClick={handleSessionLength} value='1'>
+            <Button id='session-decrement' aria-label="decrement" onClick={handleSessionLength} value='-1'>
+              <RemoveIcon />
+            </Button>
+            <Button id='session-increment' aria-label="increment" onClick={handleSessionLength} value='1'>
               <AddIcon />
             </Button>
           </ButtonGroup>
         </Grid>
-        <Grid item className={classes.playControl} xs={12} sm={4}>
+        <Grid item className={classes.breakControl} xs={12} sm={6}>
+          <Typography id='break-label'>Break Time Length</Typography>
+          <ButtonGroup variant="contained" aria-label="split button">
+            <Button disabled style={{ color: 'black' }}>
+              <FreeBreakfastIcon />
+            </Button>
+            <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
+              <span id='break-length'>{breakLength}</span>&nbsp;min
+            </Button>
+            <Button id='break-decrement' aria-label="decrement" onClick={handleBreakLength} value='-1'>
+              <RemoveIcon />
+            </Button>
+            <Button id='break-increment' aria-label="increment" onClick={handleBreakLength} value='1'>
+              <AddIcon />
+            </Button>
+          </ButtonGroup>
+        </Grid>
+        <Grid item className={classes.playControl} xs={12} sm={12}>
           <Typography>&nbsp;</Typography>
           <ButtonGroup variant="contained" aria-label="split button">
             <Button id='start_stop' onClick={startOrPause}>
@@ -143,20 +170,6 @@ function App() {
             <Button id='reset' onClick={reset}>
               <StopIcon />
               <RefreshIcon />
-            </Button>
-          </ButtonGroup>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Typography id='break-label'>Break Time Length</Typography>
-          <ButtonGroup variant="contained" aria-label="split button">
-            <Button id='break-decrement' aria-label="add" onClick={handleBreakLength} value='-1'>
-              <RemoveIcon />
-            </Button>
-            <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
-              <span id='break-length'>{breakLength}</span>&nbsp;min
-            </Button>
-            <Button id='break-increment' aria-label="add" onClick={handleBreakLength} value='1'>
-              <AddIcon />
             </Button>
           </ButtonGroup>
         </Grid>
