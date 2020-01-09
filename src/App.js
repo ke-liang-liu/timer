@@ -153,10 +153,10 @@ function App() {
               <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
                 <span id='session-length'>{sessionLength}</span>&nbsp;min
             </Button>
-              <Button id='session-decrement' aria-label="decrement" onClick={handleSessionLength} value='-1'>
+              <Button id='session-decrement' disabled={status === 'running'} aria-label="decrement" onClick={handleSessionLength} value='-1'>
                 <RemoveIcon />
               </Button>
-              <Button id='session-increment' aria-label="increment" onClick={handleSessionLength} value='1'>
+              <Button id='session-increment' disabled={status === 'running'} aria-label="increment" onClick={handleSessionLength} value='1'>
                 <AddIcon />
               </Button>
             </ButtonGroup>
@@ -170,10 +170,10 @@ function App() {
               <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
                 <span id='break-length'>{breakLength}</span>&nbsp;min
             </Button>
-              <Button id='break-decrement' aria-label="decrement" onClick={handleBreakLength} value='-1'>
+              <Button id='break-decrement' disabled={status === 'running'} aria-label="decrement" onClick={handleBreakLength} value='-1'>
                 <RemoveIcon />
               </Button>
-              <Button id='break-increment' aria-label="increment" onClick={handleBreakLength} value='1'>
+              <Button id='break-increment' disabled={status === 'running'} aria-label="increment" onClick={handleBreakLength} value='1'>
                 <AddIcon />
               </Button>
             </ButtonGroup>
