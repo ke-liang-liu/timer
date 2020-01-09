@@ -15,12 +15,26 @@ import useStyles from './styles';
 
 function App() {
   const classes = useStyles();
-  const [breakLength, setBreakLength] = useState(5);
-  const [sessionLength, setSessionLength] = useState(25);
+  const [remainSeconds, setRemainSeconds] = useState(1500);
+  const [breakLength, setBreakLength] = useState(() => {
+    const localData = localStorage.getItem('timerBreakLength');
+    if (localData === null || localData === 'null' || isNaN(localData) || localData === '') {
+      return 5;
+    }
+    return Number(localData);
+  });
+  const [sessionLength, setSessionLength] = useState(() => {
+    const localData = localStorage.getItem('timerSessionLength');
+    if (localData === null || localData === 'null' || isNaN(localData) || localData === '') {
+      setRemainSeconds(25 * 60);
+      return 25;
+    }
+    setRemainSeconds(Number(localData) * 60);
+    return Number(localData);
+  });
   const [status, setStatus] = useState('stop'); // 'stop' || 'running'
   const [type, setType] = useState('Session');  // 'Session' || 'Break'
   const [intervalID, setIntervalID] = useState('');
-  const [remainSeconds, setRemainSeconds] = useState(1500);
   const [displayTimeLeft, setDisplayTimeLeft] = useState('25:00');
   const audio = document.getElementById("beep");
   useEffect(() => {
@@ -34,13 +48,13 @@ function App() {
 
   const reset = () => {
     clearInterval(intervalID);
-    setBreakLength(5);
-    setSessionLength(25);
+    // setBreakLength(5);
+    // setSessionLength(25);
+    // setDisplayTimeLeft('25:00');
+    setRemainSeconds(sessionLength * 60);
     setStatus('stop');
     setType('Session');
     setIntervalID('');
-    setRemainSeconds(1500);
-    setDisplayTimeLeft('25:00');
     audio.pause();
     audio.currentTime = 0; // be rewound to the beginning
   }
@@ -60,6 +74,8 @@ function App() {
 
   const startOrPause = () => {
     if (status === 'stop') {
+      localStorage.setItem('timerBreakLength', breakLength);
+      localStorage.setItem('timerSessionLength', sessionLength);
       setStatus('running');
       let counter = remainSeconds;
       let typeStr = type;
