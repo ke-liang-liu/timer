@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     // [theme.breakpoints.up('sm')]: {
     //   textAlign: 'left',
     // },
-    paddingTop: theme.spacing(1),
+    paddingTop: theme.spacing(2),
   },
   textBtn: {
     width: 62,
@@ -16,6 +16,13 @@ const useStyles = makeStyles(theme => ({
   divider: {
     margin: theme.spacing(2, 0),
   },
+  playControl: {
+    marginBottom: theme.spacing(2),
+  },
+  developer: {
+    margin: 'auto',
+    marginTop: theme.spacing(2),
+  }
 }));
 
 export default useStyles;

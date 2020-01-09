@@ -47,13 +47,13 @@ function App() {
   const handleBreakLength = (e) => {
     if (status === 'running') { return };
     const newValue = breakLength + Number(e.currentTarget.value);
-    if (newValue < 1 || newValue > 60) { return }
+    if (newValue < 1 || newValue > 99) { return }
     setBreakLength(newValue);
   }
   const handleSessionLength = (e) => {
     if (status === 'running') { return };
     const newValue = sessionLength + Number(e.currentTarget.value);
-    if (newValue < 1 || newValue > 60) { return }
+    if (newValue < 1 || newValue > 99) { return }
     setSessionLength(newValue);
     setRemainSeconds(newValue * 60);
   }
@@ -99,13 +99,13 @@ function App() {
       <Typography variant="h5">
         <span id='time-left'>{displayTimeLeft}</span><br />
       </Typography>
-      <span>min&nbsp;&nbsp;&nbsp;sec</span>
+      <span>min&nbsp;&nbsp;sec</span>
       <Divider className={classes.divider} />
 
       <Grid container>
         <Grid item xs={12} sm={4}>
           <Typography id='session-label'>Session Time Length</Typography>
-          <ButtonGroup size='small' variant="contained" aria-label="split button">
+          <ButtonGroup variant="contained" aria-label="split button">
             <Button id='session-decrement' aria-label="add" onClick={handleSessionLength} value='-1'>
               <RemoveIcon />
             </Button>
@@ -117,9 +117,9 @@ function App() {
             </Button>
           </ButtonGroup>
         </Grid>
-        <Grid item xs={12} sm={4} style={{ marginBottom: 16 }}>
+        <Grid item className={classes.playControl} xs={12} sm={4}>
           <Typography>&nbsp;</Typography>
-          <ButtonGroup size='small' variant="contained" aria-label="split button">
+          <ButtonGroup variant="contained" aria-label="split button">
             <Button id='start_stop' onClick={startOrPause}>
               <PlayArrowIcon />
               <PauseIcon />
@@ -132,7 +132,7 @@ function App() {
         </Grid>
         <Grid item xs={12} sm={4}>
           <Typography id='break-label'>Break Time Length</Typography>
-          <ButtonGroup size='small' variant="contained" aria-label="split button">
+          <ButtonGroup variant="contained" aria-label="split button">
             <Button id='break-decrement' aria-label="add" onClick={handleBreakLength} value='-1'>
               <RemoveIcon />
             </Button>
@@ -144,7 +144,7 @@ function App() {
             </Button>
           </ButtonGroup>
         </Grid>
-        <div style={{ margin: 'auto', marginTop: 16 }}>
+        <div className={classes.developer}>
           <Typography variant="body2" align='center'>
             Designed and Coded By Keliang Liu
           </Typography>
