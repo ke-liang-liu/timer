@@ -194,7 +194,7 @@ function App() {
           </Typography>
           </div>
         </Grid>
-        <audio id="beep" preload="auto" src="https://goo.gl/65cBl1" />
+        <audio id="beep" preload="auto" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">alarm clock</audio>
       </Container>
     </div>
   );
