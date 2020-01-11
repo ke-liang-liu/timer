@@ -52,9 +52,6 @@ function App() {
 
   const reset = () => {
     clearInterval(intervalID);
-    // setBreakLength(5);
-    // setSessionLength(25);
-    // setDisplayTimeLeft('25:00');
     setRemainSeconds(sessionLength * 60);
     setStatus('stop');
     setType('Session');
@@ -137,10 +134,10 @@ function App() {
         ) : (
             <div><FreeBreakfastIcon fontSize='large' /></div>
           )}
-        <Typography variant="h5">
+        <Typography variant="h4">
           <span id='time-left'>{displayTimeLeft}</span><br />
         </Typography>
-        <span>min&nbsp;&nbsp;sec</span>
+        <span>min&nbsp;&nbsp;&nbsp;sec</span>
         <Divider className={classes.divider} />
 
         <Grid container>
@@ -152,7 +149,7 @@ function App() {
               </Button>
               <Button className={classes.textBtn} variant='text' disabled style={{ color: 'black' }}>
                 <span id='session-length'>{sessionLength}</span>&nbsp;min
-            </Button>
+              </Button>
               <Button id='session-decrement' disabled={status === 'running'} aria-label="decrement" onClick={handleSessionLength} value='-1'>
                 <RemoveIcon />
               </Button>

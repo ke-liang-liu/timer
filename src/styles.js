@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     // [theme.breakpoints.up('sm')]: {
     //   textAlign: 'left',
     // },
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(1),
   },
   textBtn: {
     width: 62,
@@ -17,17 +17,17 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2, 0),
   },
   sessionControl: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
   breakControl: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
   playControl: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
   developer: {
     margin: 'auto',
-    marginTop: theme.spacing(1.6),
+    marginTop: theme.spacing(1.2),
   }
 }));
 
