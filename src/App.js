@@ -190,8 +190,8 @@ function App() {
           </Grid>
           <div className={classes.developer}>
             <Typography variant="body2" align='center'>
-              Designed and Coded By Keliang Liu
-          </Typography>
+
+            </Typography>
           </div>
         </Grid>
         <audio id="beep" preload="auto" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">alarm clock</audio>
